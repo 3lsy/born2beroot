@@ -14,23 +14,23 @@ Debian 11
 - Configure operating system with the UFW
 
 ### hostname
-Login ending with 42
+- [ ] Login ending with 42
 
 ### Users
-- Root user
+- [ ] Root user
 
 * A user with the login as username, it has to belong to the user42 and sudo groups
 
 ### pwd security
 |Requirements |Description  |
 |--- | --- |
-|**Expiration**|Every 30 days|
-|**Min number of days allowed before modification** |2|
-|**Warning message|7 days before expiration|
-|**Length**|At least 10 characters|
-|**Composition**|An uppercase letter, a lowercase letter and a number|
-|**Forbidden**|More than 3 consecutive identical characters, include the name of the user|
-|**New password**|Must have at least 7 characters that aren't a part of the former password|
+| **Expiration**|Every 30 days|
+| **Min number of days allowed before modification** |2|
+| **Warning message**|7 days before expiration|
+| **Length**|At least 10 characters|
+| **Composition**|An uppercase letter, a lowercase letter and a number|
+| **Forbidden**|More than 3 consecutive identical characters, include the name of the user|
+| **New password**|Must have at least 7 characters that aren't a part of the former password|
 
 ### Configuration for sudo group
 Authentication of sudo caused by incorrect password is limited to 3 attempts.
