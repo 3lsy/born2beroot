@@ -65,7 +65,7 @@ Developed in bash, will display some information on all terminals every 10 min. 
 ### Steps
 * Download and check debian distro:
 ```bash
-echo "6a6607a05d57b7c62558e9c462fe5c6c04b9cfad2ce160c3e9140aa4617ab73aff7f5f745dfe51bbbe7b33c9b0e219a022ad682d6c327de0e53e40f079abf66a  debian-11.5.0-amd64-netinst.iso" | sha512sum --check
-debian-11.5.0-amd64-netinst.iso: OK
+echo '224cd98011b9184e49f858a46096c6ff4894adff8945ce89b194541afdfd93b73b4666b0705234bd4dff42c0a914fdb6037dd0982efb5813e8a553d8e92e6f51  debian-11.6.0-amd64-netinst.iso' | sha512sum --check
+debian-11.6.0-amd64-netinst.iso: OK
 ```
 
