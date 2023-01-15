@@ -1,25 +1,25 @@
 # born2beroot
 ### Operating system
-Debian 11
+Debian 11.6
 
 ## Requirements
-- No graphical interface
+- [X] No graphical interface
 
-- 2 encrypted partitions using LVM
+- [X] 2 encrypted partitions using LVM
 
-- SSH service only running on port 4242
+- [X] SSH service only running on port 4242
 
-- Impossible to connect using SSH as root
+- [X] Impossible to connect using SSH as root
 
-- Configure operating system with the UFW
+- [X] Configure operating system with the UFW
 
 ### hostname
-- [ ] Login ending with 42
+- [X] Login ending with 42
 
 ### Users
-- [ ] Root user
+- [X] Root user
 
-* A user with the login as username, it has to belong to the user42 and sudo groups
+- [X] A user with the login as username, it has to belong to the user42 and sudo groups
 
 ### pwd security
 |Requirements |Description  |
@@ -33,15 +33,15 @@ Debian 11
 | **New password**|Must have at least 7 characters that aren't a part of the former password|
 
 ### Configuration for sudo group
-Authentication of sudo caused by incorrect password is limited to 3 attempts.
+- [X] Authentication of sudo caused by incorrect password is limited to 3 attempts.
 
-Display message if there is an error caused by an incorrect password.
+- [X] Display message if there is an error caused by an incorrect password.
 
-Archive every action of sudo (inputs and outputs). The log file has to be saved in: /var/log/sudo/
+- [X] Archive every action of sudo (inputs and outputs). The log file has to be saved in: /var/log/sudo/
 
-TTY mode has to be enabled
+- [X] TTY mode has to be enabled
 
-Paths that can be used by sudo must be restricted.
+- [X] Paths that can be used by sudo must be restricted.
 
 ### monitoring.sh
 
