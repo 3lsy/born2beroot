@@ -6,7 +6,7 @@
 #    By: echavez- <echavez-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/31 12:22:02 by echavez-          #+#    #+#              #
-#    Updated: 2023/01/31 12:22:12 by echavez-         ###   ########.fr        #
+#    Updated: 2023/01/31 14:39:09 by echavez-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,9 +38,20 @@ function ft_mem()
     local _total=$(echo "$_mem_gb" | awk '{total_mem += $2} END {print total_mem}')
     local _usage_percent=$(echo "$_mem_mb" | awk '{used_mem += $3} {total_mem += $2} END \
     	  		      	       	      {printf("%.2f"), used_mem / total_mem * 100}')
-
     ## Return formated info
     echo "${_free}/${_total}GB (${_usage_percent}%)"
+}
+
+function ft_ip_mac()
+{
+    # IP & MAC ADDRESS
+
+    ## Variables
+    local _ip=$(hostname -I)
+    local _mac=$(ip a | grep link/ether | awk '{print $2}')
+
+    ##Return formated info
+    echo "IP $_ip ($_mac)"
 }
 
 architecture=$(uname -a)
@@ -48,13 +59,13 @@ phy_proc=$(grep "^physical id" /proc/cpuinfo | sort -u | wc -l)
 vir_proc=$(grep "^processor" /proc/cpuinfo | wc -l)
 av_ram=$(ft_ram)
 av_mem=$(ft_mem)
-cpu_load=$()
-last_reboot=$()
+cpu_load=$(top -bn1 | grep '^%Cpu' | awk '{printf("%.1f%%"), $2}')
+last_reboot=$(who -b | awk '{print $3" "$4" "$5}')
 lvm_active=$(lsblk | grep -m1 lvm | awk '{if ($1) {print "yes"} else {print "no"} }')
-active_connections=$()
-active_users=$()
-ip_mac=$()
-sudo_commands=$(sudo grep 'sudo:session' /var/log/auth.log | grep -v 'session closed\|COMMAND' | wc -l)
+active_connections=$(ss -t | grep ESTAB | wc -l)
+active_users=$(who | cut -d" " -f1 | sort -u | wc -l)
+ip_mac=$(ft_ip_mac)
+sudo_commands=$(grep 'sudo:session' /var/log/auth.log | grep -v 'session closed\|COMMAND' | wc -l)
 
 wall "    #Architecture: $architecture
     #CPU physical: $phy_proc
